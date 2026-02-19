@@ -1,16 +1,16 @@
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
+import GallerySection from "@/components/GallerySection";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 
-const Index = () => (
+const PaintingsPage = () => (
   <PageTransition>
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background pt-20">
       <Navbar />
-      <HeroSection />
+      <GallerySection />
       <Footer />
     </main>
   </PageTransition>
 );
 
-export default Index;
+export default PaintingsPage;

@@ -1,16 +1,16 @@
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 
-const Index = () => (
+const ContactPage = () => (
   <PageTransition>
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background pt-20">
       <Navbar />
-      <HeroSection />
+      <ContactSection />
       <Footer />
     </main>
   </PageTransition>
 );
 
-export default Index;
+export default ContactPage;
