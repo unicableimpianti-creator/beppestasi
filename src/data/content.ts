@@ -1,7 +1,8 @@
 export const navLinks = [
-  { id: "bio", it: "Biografia", en: "Biography" },
-  { id: "opere", it: "Opere", en: "Works" },
-  { id: "contatti", it: "Contatti", en: "Contact" },
+  { id: "paintings", it: "Dipinti", en: "Paintings" },
+  { id: "paper", it: "Carta", en: "Paper" },
+  { id: "bio", it: "Bio", en: "Bio" },
+  { id: "contatti", it: "Contatti", en: "Contacts" },
 ];
 
 export const bio = {
@@ -28,6 +29,16 @@ export const artworks = [
   { id: 4, title: "Ninna Nanna", year: 2023, technique: { it: "Olio su tela", en: "Oil on canvas" } },
   { id: 5, title: "Bacio", year: 2023, technique: { it: "Olio su tela", en: "Oil on canvas" } },
   { id: 6, title: "Pinocchio capitolo XV – dittico", year: 2022, technique: { it: "Olio su tela", en: "Oil on canvas" } },
+];
+
+// Paper works - placeholders ready for images
+export const paperWorks = [
+  { id: 1, title: "Placeholder 1" },
+  { id: 2, title: "Placeholder 2" },
+  { id: 3, title: "Placeholder 3" },
+  { id: 4, title: "Placeholder 4" },
+  { id: 5, title: "Placeholder 5" },
+  { id: 6, title: "Placeholder 6" },
 ];
 
 export const WHATSAPP_NUMBER = "+393803453521";
