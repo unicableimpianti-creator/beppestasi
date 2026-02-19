@@ -3,36 +3,37 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { navLinks } from "@/data/content";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const { lang, toggle } = useLanguage();
   const [open, setOpen] = useState(false);
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setOpen(false);
-  };
+  const location = useLocation();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
-        <button
-          onClick={() => scrollTo("hero")}
+        <Link
+          to="/"
           className="text-sm font-body font-semibold letter-spaced uppercase text-foreground"
         >
           BEPPE STASI
-        </button>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <button
+            <Link
               key={link.id}
-              onClick={() => scrollTo(link.id)}
-              className="text-xs font-body font-medium letter-spaced uppercase text-muted-foreground hover:text-foreground transition-colors"
+              to={link.path}
+              className={`text-xs font-body font-medium letter-spaced uppercase transition-colors ${
+                location.pathname === link.path
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {lang === "it" ? link.it : link.en}
-            </button>
+            </Link>
           ))}
           <button
             onClick={toggle}
@@ -70,13 +71,18 @@ const Navbar = () => {
           >
             <div className="px-8 py-6 flex flex-col gap-5">
               {navLinks.map((link) => (
-                <button
+                <Link
                   key={link.id}
-                  onClick={() => scrollTo(link.id)}
-                  className="text-left text-xs font-body font-medium letter-spaced uppercase text-muted-foreground hover:text-foreground"
+                  to={link.path}
+                  onClick={() => setOpen(false)}
+                  className={`text-left text-xs font-body font-medium letter-spaced uppercase ${
+                    location.pathname === link.path
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {lang === "it" ? link.it : link.en}
-                </button>
+                </Link>
               ))}
             </div>
           </motion.div>

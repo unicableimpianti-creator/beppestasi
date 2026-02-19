@@ -1,8 +1,8 @@
 export const navLinks = [
-  { id: "paintings", it: "Dipinti", en: "Paintings" },
-  { id: "paper", it: "Carta", en: "Paper" },
-  { id: "bio", it: "Bio", en: "Bio" },
-  { id: "contatti", it: "Contatti", en: "Contacts" },
+  { id: "paintings", path: "/paintings", it: "Dipinti", en: "Paintings" },
+  { id: "paper", path: "/paper", it: "Carta", en: "Paper" },
+  { id: "bio", path: "/bio", it: "Bio", en: "Bio" },
+  { id: "contatti", path: "/contacts", it: "Contatti", en: "Contacts" },
 ];
 
 export const bio = {
@@ -31,7 +31,6 @@ export const artworks = [
   { id: 6, title: "Pinocchio capitolo XV – dittico", year: 2022, technique: { it: "Olio su tela", en: "Oil on canvas" } },
 ];
 
-// Paper works - placeholders ready for images
 export const paperWorks = [
   { id: 1, title: "Placeholder 1" },
   { id: 2, title: "Placeholder 2" },
