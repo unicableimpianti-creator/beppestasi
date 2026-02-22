@@ -9,56 +9,47 @@ const GallerySection = () => {
   const [selected, setSelected] = useState<(typeof artworks)[0] | null>(null);
 
   return (
-    <section id="paintings" className="py-24 md:py-32 px-8">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-xs font-body font-medium letter-spaced uppercase text-muted-foreground mb-16 text-center">
-          {lang === "it" ? "Dipinti" : "Paintings"}
-        </h2>
-
-        {/* Masonry-like grid */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-          {artworks.map((work, i) => (
-            <motion.div
-              key={work.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-              onClick={() => setSelected(work)}
-              className="group cursor-pointer break-inside-avoid"
+    <section className="py-8 md:py-12 px-6 md:px-10">
+      <div className="max-w-4xl mx-auto space-y-20 md:space-y-32">
+        {artworks.map((work, i) => (
+          <motion.div
+            key={work.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            onClick={() => setSelected(work)}
+            className="cursor-pointer"
+          >
+            {/* Placeholder image */}
+            <div
+              className="w-full bg-muted flex items-center justify-center"
+              style={{ aspectRatio: i % 2 === 0 ? "4/3" : "3/4" }}
             >
-              {/* Placeholder image */}
-              <div
-                className="w-full bg-muted border border-border hover:border-primary/30 transition-colors flex items-center justify-center"
-                style={{ aspectRatio: i % 3 === 0 ? "3/4" : i % 3 === 1 ? "4/3" : "1/1" }}
-              >
-                <span className="text-xs text-muted-foreground letter-spaced uppercase font-body">
-                  {work.title}
-                </span>
-              </div>
-              <div className="mt-2 mb-6">
-                <p className="text-xs text-muted-foreground font-body">
-                  {work.title} — {work.year}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              <span className="text-sm text-muted-foreground font-body">
+                {work.title}
+              </span>
+            </div>
+            <p className="mt-4 font-caption text-sm md:text-base text-muted-foreground">
+              {work.title}, {work.technique[lang]}, {work.year}
+            </p>
+          </motion.div>
+        ))}
       </div>
 
       {/* Lightbox */}
       <Dialog open={!!selected} onOpenChange={() => setSelected(null)}>
-        <DialogContent className="max-w-3xl bg-background border-border">
-          <DialogHeader>
-            <DialogTitle className="font-display text-2xl font-bold">
+        <DialogContent className="max-w-4xl bg-background border-border p-2">
+          <DialogHeader className="px-4 pt-4">
+            <DialogTitle className="font-caption text-xl">
               {selected?.title}
             </DialogTitle>
-            <DialogDescription className="text-muted-foreground text-sm">
-              {selected?.year} · {selected?.technique[lang]}
+            <DialogDescription className="text-muted-foreground text-sm font-body">
+              {selected?.technique[lang]}, {selected?.year}
             </DialogDescription>
           </DialogHeader>
-          <div className="aspect-[4/5] w-full bg-muted border border-border flex items-center justify-center">
-            <span className="text-sm text-muted-foreground letter-spaced uppercase font-body">
+          <div className="aspect-[4/5] w-full bg-muted flex items-center justify-center">
+            <span className="text-sm text-muted-foreground font-body">
               {selected?.title}
             </span>
           </div>

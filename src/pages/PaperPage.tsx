@@ -5,7 +5,7 @@ import PageTransition from "@/components/PageTransition";
 
 const PaperPage = () => (
   <PageTransition>
-    <main className="min-h-screen bg-background pt-20">
+    <main className="min-h-screen bg-background pt-16">
       <Navbar />
       <PaperSection />
       <Footer />
