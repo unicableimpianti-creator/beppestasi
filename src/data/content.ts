@@ -1,7 +1,8 @@
 export const navLinks = [
   { id: "paintings", path: "/paintings", it: "Dipinti", en: "Paintings" },
   { id: "paper", path: "/paper", it: "Carta", en: "Paper" },
-  { id: "bio", path: "/bio", it: "Bio", en: "Bio" },
+  { id: "exhibitions", path: "/exhibitions", it: "Mostre", en: "Exhibitions" },
+  { id: "bio", path: "/bio", it: "Biografia", en: "Biography" },
   { id: "contatti", path: "/contacts", it: "Contatti", en: "Contacts" },
 ];
 
@@ -38,6 +39,31 @@ export const paperWorks = [
   { id: 4, title: "Placeholder 4" },
   { id: 5, title: "Placeholder 5" },
   { id: 6, title: "Placeholder 6" },
+];
+
+export type Exhibition = {
+  title: string;
+  year: number;
+  venue: string;
+  type: "solo" | "group";
+};
+
+export const exhibitions: Exhibition[] = [
+  { title: "Incastrati – Opere originali", year: 2025, venue: "Galleria XYZ, Roma, Italia", type: "solo" },
+  { title: "Nuovi figurativi italiani", year: 2024, venue: "Palazzo delle Esposizioni, Roma, Italia", type: "group" },
+  { title: "La liquidità del colore", year: 2023, venue: "Galleria ABC, Milano, Italia", type: "solo" },
+  { title: "Ritratti contemporanei", year: 2023, venue: "MACRO Museum, Roma, Italia", type: "group" },
+  { title: "Giovani pittori del Sud", year: 2022, venue: "Museo MARCA, Catanzaro, Italia", type: "group" },
+  { title: "Constitutional Circus", year: 2020, venue: "Teatro Valle, Roma, Italia", type: "group" },
+  { title: "Weekend – Arte e Cinema", year: 2020, venue: "Cinema Farnese, Roma, Italia", type: "group" },
+  { title: "Beppe Stasi – Acquerelli", year: 2019, venue: "Spazio Espositivo, Bologna, Italia", type: "solo" },
+  { title: "Accademia in Mostra", year: 2018, venue: "Accademia di Belle Arti, Roma, Italia", type: "group" },
+  { title: "Segni dal Sud", year: 2017, venue: "Galleria Civica, Cosenza, Italia", type: "group" },
+];
+
+export const exhibitionDecades = [
+  { label: "2025 - 2020", start: 2020, end: 2025 },
+  { label: "2019 - 2015", start: 2015, end: 2019 },
 ];
 
 export const WHATSAPP_NUMBER = "+393803453521";

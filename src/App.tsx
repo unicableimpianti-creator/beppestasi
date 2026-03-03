@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
 import PaintingsPage from "./pages/PaintingsPage";
 import PaperPage from "./pages/PaperPage";
+import ExhibitionsPage from "./pages/ExhibitionsPage";
 import BioPage from "./pages/BioPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
@@ -22,6 +23,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Index />} />
         <Route path="/paintings" element={<PaintingsPage />} />
         <Route path="/paper" element={<PaperPage />} />
+        <Route path="/exhibitions" element={<ExhibitionsPage />} />
         <Route path="/bio" element={<BioPage />} />
         <Route path="/contacts" element={<ContactPage />} />
         <Route path="*" element={<NotFound />} />

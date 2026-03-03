@@ -9,38 +9,36 @@ const GallerySection = () => {
   const [selected, setSelected] = useState<(typeof artworks)[0] | null>(null);
 
   return (
-    <section className="py-12 md:py-20 px-8 md:px-12">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {artworks.map((work, i) => (
-            <motion.div
-              key={work.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              onClick={() => setSelected(work)}
-              className="cursor-pointer group"
+    <section className="py-10 md:py-16 px-6 md:px-10 lg:px-14">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        {artworks.map((work, i) => (
+          <motion.div
+            key={work.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: i * 0.1 }}
+            onClick={() => setSelected(work)}
+            className="cursor-pointer group"
+          >
+            <div
+              className="w-full bg-muted flex items-center justify-center overflow-hidden"
+              style={{ aspectRatio: "4/5" }}
             >
-              <div
-                className="w-full bg-muted flex items-center justify-center overflow-hidden"
-                style={{ aspectRatio: "4/5" }}
-              >
-                <span className="text-sm text-muted-foreground font-body group-hover:opacity-70 transition-opacity">
-                  {work.title}
-                </span>
-              </div>
-              <div className="mt-3 space-y-0.5">
-                <p className="font-caption text-sm text-foreground">
-                  {work.title}, {work.year}
-                </p>
-                <p className="font-body text-[11px] text-muted-foreground">
-                  {work.technique[lang]}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              <span className="text-sm text-muted-foreground font-body group-hover:opacity-70 transition-opacity">
+                {work.title}
+              </span>
+            </div>
+            <div className="mt-3 space-y-0.5">
+              <p className="font-body text-sm text-foreground">
+                <span className="font-caption">{work.title}</span>, {work.year}
+              </p>
+              <p className="font-body text-sm text-foreground">
+                {work.technique[lang]}
+              </p>
+            </div>
+          </motion.div>
+        ))}
       </div>
 
       {/* Lightbox */}
