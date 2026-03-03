@@ -1,16 +1,16 @@
 import Navbar from "@/components/Navbar";
-import BioSection from "@/components/BioSection";
+import ExhibitionsSection from "@/components/ExhibitionsSection";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 
-const BioPage = () => (
+const ExhibitionsPage = () => (
   <PageTransition>
     <main className="min-h-screen bg-background pt-[76px]">
       <Navbar />
-      <BioSection />
+      <ExhibitionsSection />
       <Footer />
     </main>
   </PageTransition>
 );
 
-export default BioPage;
+export default ExhibitionsPage;

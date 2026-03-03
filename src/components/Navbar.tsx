@@ -11,25 +11,25 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm">
-      <div className="px-8 md:px-12 py-6 flex items-center justify-between border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background">
+      <div className="px-6 md:px-10 lg:px-14 py-5 flex items-center justify-between">
         <Link
           to="/"
-          className="font-display text-sm md:text-base tracking-[0.2em] text-foreground"
+          className="font-display text-base md:text-lg tracking-[0.15em] text-foreground"
         >
           BEPPE STASI
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8 lg:gap-12">
           {navLinks.map((link) => (
             <Link
               key={link.id}
               to={link.path}
-              className={`text-[11px] font-display tracking-[0.2em] transition-colors ${
+              className={`text-[13px] font-nav tracking-[0.15em] transition-colors pb-1 ${
                 location.pathname === link.path
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-foreground border-b-2 border-foreground"
+                  : "text-foreground hover:border-b-2 hover:border-foreground border-b-2 border-transparent"
               }`}
             >
               {lang === "it" ? link.it : link.en}
@@ -37,7 +37,7 @@ const Navbar = () => {
           ))}
           <button
             onClick={toggle}
-            className="text-[11px] font-display tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors"
+            className="text-[13px] font-nav tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors"
           >
             {lang === "it" ? "EN" : "IT"}
           </button>
@@ -47,7 +47,7 @@ const Navbar = () => {
         <div className="flex md:hidden items-center gap-4">
           <button
             onClick={toggle}
-            className="text-[11px] font-display tracking-[0.2em] text-muted-foreground"
+            className="text-[12px] font-nav tracking-[0.15em] text-muted-foreground"
           >
             {lang === "it" ? "EN" : "IT"}
           </button>
@@ -64,15 +64,15 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background overflow-hidden border-b border-border"
+            className="md:hidden bg-background overflow-hidden border-t border-border"
           >
-            <div className="px-8 py-8 flex flex-col gap-6">
+            <div className="px-6 py-8 flex flex-col gap-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.id}
                   to={link.path}
                   onClick={() => setOpen(false)}
-                  className={`text-[11px] font-display tracking-[0.2em] ${
+                  className={`text-[13px] font-nav tracking-[0.15em] ${
                     location.pathname === link.path
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
