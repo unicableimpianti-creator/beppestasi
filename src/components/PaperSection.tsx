@@ -6,27 +6,29 @@ const PaperSection = () => {
   const { lang } = useLanguage();
 
   return (
-    <section className="py-8 md:py-12 px-6 md:px-10">
-      <div className="max-w-4xl mx-auto space-y-20 md:space-y-32">
-        {paperWorks.map((work, i) => (
-          <motion.div
-            key={work.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="cursor-pointer"
-          >
-            <div
-              className="w-full bg-muted flex items-center justify-center"
-              style={{ aspectRatio: i % 2 === 0 ? "3/4" : "4/5" }}
+    <section className="py-12 md:py-20 px-8 md:px-12">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {paperWorks.map((work, i) => (
+            <motion.div
+              key={work.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="cursor-pointer group"
             >
-              <span className="text-sm text-muted-foreground font-body">
-                {lang === "it" ? "Immagine" : "Image"} {work.id}
-              </span>
-            </div>
-          </motion.div>
-        ))}
+              <div
+                className="w-full bg-muted flex items-center justify-center overflow-hidden"
+                style={{ aspectRatio: "3/4" }}
+              >
+                <span className="text-sm text-muted-foreground font-body group-hover:opacity-70 transition-opacity">
+                  {lang === "it" ? "Immagine" : "Image"} {work.id}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

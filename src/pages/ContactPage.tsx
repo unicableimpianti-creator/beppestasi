@@ -5,7 +5,7 @@ import PageTransition from "@/components/PageTransition";
 
 const ContactPage = () => (
   <PageTransition>
-    <main className="min-h-screen bg-background pt-16">
+    <main className="min-h-screen bg-background pt-[88px]">
       <Navbar />
       <ContactSection />
       <Footer />
