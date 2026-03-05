@@ -34,7 +34,7 @@ const ExhibitionsSection = () => {
     <section className="py-10 md:py-16 px-6 md:px-10 lg:px-14">
       {/* Solo Exhibitions */}
       <SectionTitle>
-        {lang === "it" ? "MOSTRE PERSONALI" : "MAINLY SOLO EXHIBITIONS"}
+        {lang === "it" ? "PRINCIPALI MOSTRE PERSONALI" : "MAIN SOLO SHOWS"}
       </SectionTitle>
       <div className="mb-16">
         {soloExhibitions.length > 0 ? (
@@ -48,7 +48,7 @@ const ExhibitionsSection = () => {
 
       {/* Group Exhibitions */}
       <SectionTitle>
-        {lang === "it" ? "MOSTRE COLLETTIVE" : "MAINLY GROUP EXHIBITIONS"}
+        {lang === "it" ? "PRINCIPALI MOSTRE COLLETTIVE" : "MAIN GROUP SHOWS"}
       </SectionTitle>
       <div>
         {groupExhibitions.length > 0 ? (

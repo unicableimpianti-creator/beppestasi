@@ -49,16 +49,27 @@ export type Exhibition = {
 };
 
 export const exhibitions: Exhibition[] = [
-  { title: "Incastrati – Opere originali", year: 2025, venue: "Galleria XYZ, Roma, Italia", type: "solo" },
-  { title: "Nuovi figurativi italiani", year: 2024, venue: "Palazzo delle Esposizioni, Roma, Italia", type: "group" },
-  { title: "La liquidità del colore", year: 2023, venue: "Galleria ABC, Milano, Italia", type: "solo" },
-  { title: "Ritratti contemporanei", year: 2023, venue: "MACRO Museum, Roma, Italia", type: "group" },
-  { title: "Giovani pittori del Sud", year: 2022, venue: "Museo MARCA, Catanzaro, Italia", type: "group" },
-  { title: "Constitutional Circus", year: 2020, venue: "Teatro Valle, Roma, Italia", type: "group" },
-  { title: "Weekend – Arte e Cinema", year: 2020, venue: "Cinema Farnese, Roma, Italia", type: "group" },
-  { title: "Beppe Stasi – Acquerelli", year: 2019, venue: "Spazio Espositivo, Bologna, Italia", type: "solo" },
-  { title: "Accademia in Mostra", year: 2018, venue: "Accademia di Belle Arti, Roma, Italia", type: "group" },
-  { title: "Segni dal Sud", year: 2017, venue: "Galleria Civica, Cosenza, Italia", type: "group" },
+  // Solo
+  { title: "POV", year: 2020, venue: "LDM Gallery, Firenze", type: "solo" },
+  { title: "TILT!", year: 2019, venue: "Sinestetica Art Gallery, Roma", type: "solo" },
+  { title: "è-stasi", year: 2017, venue: "Galleria Studio Rosai, Firenze", type: "solo" },
+  { title: "Volti", year: 2015, venue: "Palazzo Citino, Longobucco (CS)", type: "solo" },
+  { title: "Volti", year: 2013, venue: "Galleria di Arte Provinciale di Santa Chiara, Cosenza", type: "solo" },
+  { title: "Ombre di Grafite", year: 2011, venue: "Palazzo Citino, Longobucco (CS)", type: "solo" },
+  // Group
+  { title: "On the Road Again", year: 2025, venue: "Huberty & Breyne, Bruxelles", type: "group" },
+  { title: "Animal House", year: 2025, venue: "Von Buren Contemporary, Roma", type: "group" },
+  { title: "Appuntamento al buio", year: 2025, venue: "Chroma Mandrione, Roma", type: "group" },
+  { title: "Sconfinamenti", year: 2024, venue: "Capitolium Art Gallery", type: "group" },
+  { title: "THE GRAND TOUR", year: 2024, venue: "Von Buren Contemporary, Roma", type: "group" },
+  { title: "Eternally Pre-Raphaelite", year: 2023, venue: "Von Buren Contemporary, Roma", type: "group" },
+  { title: "The Traveler", year: 2022, venue: "Huberty & Breyne, Bruxelles", type: "group" },
+  { title: "Suggestioni Dantesche: La Divina Commedia illustrata", year: 2020, venue: "Los Angeles", type: "group" },
+  { title: "Segno contemporaneo", year: 2019, venue: "Dingyuan International Art Center, Pechino", type: "group" },
+  { title: "Corpus Dei", year: 2016, venue: "Nero Gallery, Roma", type: "group" },
+  { title: "Waiting for the Moon", year: 2016, venue: "Nero Gallery, Roma", type: "group" },
+  { title: "Festival Invasioni, Liberamente", year: 2014, venue: "MAM Museo delle arti e dei mestieri, Cosenza", type: "group" },
+  { title: "PERCORSI / Tempi Diversi", year: 2012, venue: "Galleria di Arte Provinciale di Santa Chiara, Cosenza", type: "group" },
 ];
 
 export const exhibitionDecades = [
