@@ -1,20 +1,13 @@
-import { useLanguage } from "@/contexts/LanguageContext";
 import { bio } from "@/data/content";
 import { motion } from "framer-motion";
 import SectionTitle from "@/components/SectionTitle";
 
 const BioSection = () => {
-  const { lang } = useLanguage();
-  const paragraphs = bio[lang];
-
   return (
     <section className="py-10 md:py-16 px-6 md:px-10 lg:px-14">
-      <SectionTitle>
-        {lang === "it" ? "BIOGRAFIA" : "BIOGRAPHY"}
-      </SectionTitle>
+      <SectionTitle>BIOGRAPHY</SectionTitle>
 
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 mt-8">
-        {/* Profile photo */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -23,14 +16,13 @@ const BioSection = () => {
         >
           <div className="aspect-[3/4] w-full max-w-[380px] bg-muted flex items-center justify-center">
             <span className="text-xs text-muted-foreground font-nav tracking-[0.15em]">
-              {lang === "it" ? "FOTO" : "PHOTO"}
+              PHOTO
             </span>
           </div>
         </motion.div>
 
-        {/* Bio text */}
         <div className="flex-1 space-y-5">
-          {paragraphs.map((p, i) => (
+          {bio.map((p, i) => (
             <motion.p
               key={i}
               initial={{ opacity: 0 }}

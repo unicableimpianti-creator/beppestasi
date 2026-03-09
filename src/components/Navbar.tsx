@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { navLinks } from "@/data/content";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const { lang, toggle } = useLanguage();
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
@@ -32,25 +30,13 @@ const Navbar = () => {
                   : "text-foreground hover:border-b-2 hover:border-foreground border-b-2 border-transparent"
               }`}
             >
-              {lang === "it" ? link.it : link.en}
+              {link.label}
             </Link>
           ))}
-          <button
-            onClick={toggle}
-            className="text-[13px] font-nav tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {lang === "it" ? "EN" : "IT"}
-          </button>
         </div>
 
         {/* Mobile */}
         <div className="flex md:hidden items-center gap-4">
-          <button
-            onClick={toggle}
-            className="text-[12px] font-nav tracking-[0.15em] text-muted-foreground"
-          >
-            {lang === "it" ? "EN" : "IT"}
-          </button>
           <button onClick={() => setOpen(!open)} className="text-foreground">
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -78,7 +64,7 @@ const Navbar = () => {
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  {lang === "it" ? link.it : link.en}
+                  {link.label}
                 </Link>
               ))}
             </div>

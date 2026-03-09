@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { artworks } from "@/data/content";
 import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const GallerySection = () => {
-  const { lang } = useLanguage();
   const [selected, setSelected] = useState<(typeof artworks)[0] | null>(null);
 
   return (
@@ -34,7 +32,7 @@ const GallerySection = () => {
                 <span className="font-caption">{work.title}</span>, {work.year}
               </p>
               <p className="font-body text-sm text-foreground">
-                {work.technique[lang]}
+                {work.technique}
               </p>
             </div>
           </motion.div>
@@ -49,7 +47,7 @@ const GallerySection = () => {
               {selected?.title}
             </DialogTitle>
             <DialogDescription className="text-muted-foreground text-sm font-body">
-              {selected?.technique[lang]}, {selected?.year}
+              {selected?.technique}, {selected?.year}
             </DialogDescription>
           </DialogHeader>
           <div className="aspect-[4/5] w-full bg-muted flex items-center justify-center">
