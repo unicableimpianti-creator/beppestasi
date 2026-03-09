@@ -24,8 +24,8 @@ export const artworks = [
 ];
 
 export const paperWorks = [
-  { id: 1, title: "Octopus", technique: "watercolor on paper", dimensions: "cm 56x76", year: 2025, image: "octopus.png" },
-  { id: 2, title: "Untitled", technique: "", dimensions: "cm 36x56", year: 2025, image: "untitled.png" },
+  { id: 1, title: "Octopus", technique: "watercolor on paper", dimensions: "cm 56x76", year: 2025, image: "octopus.jpg" },
+  { id: 2, title: "Untitled", technique: "", dimensions: "cm 36x56", year: 2025, image: "untitled.jpg" },
 ];
 
 export type Exhibition = {
