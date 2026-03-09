@@ -1,10 +1,7 @@
-import { useLanguage } from "@/contexts/LanguageContext";
 import { paperWorks } from "@/data/content";
 import { motion } from "framer-motion";
 
 const PaperSection = () => {
-  const { lang } = useLanguage();
-
   return (
     <section className="py-10 md:py-16 px-6 md:px-10 lg:px-14">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
@@ -22,7 +19,7 @@ const PaperSection = () => {
               style={{ aspectRatio: "3/4" }}
             >
               <span className="text-sm text-muted-foreground font-body group-hover:opacity-70 transition-opacity">
-                {lang === "it" ? "Immagine" : "Image"} {work.id}
+                Image {work.id}
               </span>
             </div>
           </motion.div>

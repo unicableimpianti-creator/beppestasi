@@ -1,111 +1,71 @@
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
-import SectionTitle from "@/components/SectionTitle";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { motion } from "framer-motion";
+import { artworks } from "@/data/content";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Index = () => {
-  const { lang } = useLanguage();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % artworks.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const current = artworks[currentIndex];
 
   return (
     <PageTransition>
       <main className="min-h-screen bg-background">
         <Navbar />
-        {/* Hero section — large painting + quote */}
         <section className="pt-[76px]">
-          <div className="flex flex-col lg:flex-row">
-            {/* Featured painting */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2 }}
-              className="w-full lg:w-[62%]"
-            >
-              <div
-                className="w-full bg-muted flex items-center justify-center"
-                style={{ height: "calc(100vmin - 100px)", maxHeight: "61.4vw", minHeight: "320px" }}
-              >
-                <span className="text-sm text-muted-foreground font-body">
-                  {lang === "it" ? "Opera in evidenza" : "Featured work"}
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Quote + artwork details */}
-            <div className="w-full lg:w-[38%] px-8 md:px-10 lg:px-12 py-10 lg:py-14 flex flex-col justify-between">
-              <div>
-                <motion.blockquote
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="font-quote text-base md:text-lg lg:text-xl leading-relaxed text-foreground text-justify"
-                >
-                  {lang === "it"
-                    ? "\u201CNon ascoltate gli sciocchi che dicono che i ritratti non hanno importanza, o che la pittura è morta. C'è ancora molto da fare.\u201D"
-                    : "\u201CDon't listen to the fools who say that pictures of people can be of no consequence, or that painting is dead. There is much to be done.\u201D"}
-                </motion.blockquote>
-
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="mt-4 font-body text-sm text-right text-foreground"
-                >
-                  - BEPPE STASI
-                </motion.p>
-              </div>
-
-              {/* Artwork tombstone */}
+          <div className="relative w-full" style={{ height: "calc(100vh - 76px)", minHeight: "400px" }}>
+            <AnimatePresence mode="wait">
               <motion.div
+                key={current.id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 1 }}
-                className="mt-auto pt-12 lg:pt-20 space-y-0.5"
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                className="absolute inset-0 bg-muted flex items-center justify-center"
               >
-                <p className="font-body text-sm text-foreground">
-                  <span className="font-caption">Penziere mieje</span>, 2021
-                </p>
-                <p className="font-body text-sm text-foreground">
-                  {lang === "it" ? "olio su tela" : "oil on canvas"}
-                </p>
-                <p className="font-body text-sm text-foreground">
-                  {lang === "it" ? "collezione privata" : "private collection"}
-                </p>
-
-                <Link
-                  to="/paintings"
-                  className="inline-block mt-3 text-sm font-body text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
-                >
-                  {lang === "it"
-                    ? "Scopri le altre opere"
-                    : "See more work from this period"}
-                </Link>
+                <span className="text-sm text-muted-foreground font-body">
+                  {current.title}
+                </span>
               </motion.div>
-            </div>
-          </div>
-        </section>
+            </AnimatePresence>
 
-        {/* NEWS section */}
-        <section className="px-6 md:px-10 lg:px-14 py-10">
-          <SectionTitle>NEWS</SectionTitle>
-          <div className="pt-4 space-y-2">
-            <h3 className="font-quote text-base text-foreground">
-              {lang === "it" ? "Inverno 2025" : "Winter 2025"}
-            </h3>
-            <ul className="list-disc list-inside space-y-1 text-sm font-body text-foreground">
-              <li>
-                {lang === "it"
-                  ? "Nuove opere disponibili in studio a Roma"
-                  : "New works available at the Rome studio"}
-              </li>
-              <li>
-                {lang === "it"
-                  ? "In preparazione la prossima mostra personale"
-                  : "Upcoming solo exhibition in preparation"}
-              </li>
-            </ul>
+            {/* Artwork info overlay */}
+            <div className="absolute bottom-0 left-0 right-0 px-8 md:px-10 lg:px-14 py-8 bg-gradient-to-t from-background/80 to-transparent">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={current.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.6 }}
+                  className="space-y-1"
+                >
+                  <p className="font-body text-sm text-foreground">
+                    <span className="font-caption">{current.title}</span>, {current.year}
+                  </p>
+                  <p className="font-body text-sm text-foreground">
+                    {current.technique}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+
+              <Link
+                to="/paintings"
+                className="inline-block mt-4 text-sm font-body text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+              >
+                See more works
+              </Link>
+            </div>
           </div>
         </section>
 
