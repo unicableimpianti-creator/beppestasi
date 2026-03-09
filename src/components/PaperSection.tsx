@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 // Import images
-import octopus from "@/assets/paper/octopus.png";
-import untitled from "@/assets/paper/untitled.png";
+import octopus from "@/assets/paper/octopus.jpg";
+import untitled from "@/assets/paper/untitled.jpg";
 
 const imageMap: Record<string, string> = {
-  "octopus.png": octopus,
-  "untitled.png": untitled,
+  "octopus.jpg": octopus,
+  "untitled.jpg": untitled,
 };
 
 const PaperSection = () => {
