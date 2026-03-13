@@ -1,9 +1,9 @@
 export const navLinks = [
-  { id: "paintings", path: "/paintings", label: "Selected Publications" },
   { id: "paper", path: "/paper", label: "Works on Paper" },
+  { id: "paintings", path: "/paintings", label: "Selected Publications" },
   { id: "exhibitions", path: "/exhibitions", label: "Exhibitions" },
-  { id: "bio", path: "/bio", label: "Biography" },
-  { id: "contatti", path: "/contacts", label: "Contacts" },
+  { id: "bio", path: "/bio", label: "Bio" },
+  { id: "contatti", path: "/contacts", label: "Contact" },
 ];
 
 export const bio = [
